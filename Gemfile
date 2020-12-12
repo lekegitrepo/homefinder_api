@@ -35,12 +35,14 @@ gem 'counter_culture', '~> 2.0'
 # Devise
 gem 'devise'
 
-gem 'faker'
+gem 'ffaker'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
 gem 'rubocop'
+
+gem 'shoulda-matchers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
