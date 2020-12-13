@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Home, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before { @home = FactoryBot.build(:home) }
+
+  subject { @home }
+
+  it { should respond_to(:type) }
+  it { should respond_to(:description) }
+  it { should respond_to(:location) }
+
+  it { should be_valid }
 end
