@@ -1,5 +1,5 @@
 class Api::V1::SessionsController < ApplicationController
-
+  before_action :authenticate_with_token, only: :destroy
   def create
     user_password = params[:session][:password]
     user_email = params[:session][:email]
@@ -17,5 +17,13 @@ class Api::V1::SessionsController < ApplicationController
     else
       render_json 'Unable to Signed in: wrong email or password', false, {}, :unprocessable_entity
     end
+  end
+
+  def destroy
+    user = User.find_by(auth_token: params[:id])
+    session[:user_id] = ''
+    sign_out user
+    reset_session
+    head :no_content
   end
 end
