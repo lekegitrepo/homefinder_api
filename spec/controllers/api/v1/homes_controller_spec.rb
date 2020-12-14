@@ -31,5 +31,16 @@ RSpec.describe Api::V1::HomesController, type: :controller do
     it 'should list the houses' do
       expect(@house_list.length).to eql(10)
     end
+
+    it 'should list the houses with :homes as the key' do
+      expect(json_response).to have_key(:homes)
+    end
+
+    context 'When first item is picked from the list' do
+      it 'should return the detail of the first house picked' do
+        first_home = json_response[:homes].first
+        expect(first_home).to have_key(:home_type)
+      end
+    end
   end
 end
