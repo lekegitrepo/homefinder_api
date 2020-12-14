@@ -42,5 +42,7 @@ RSpec.describe Api::V1::HomesController, type: :controller do
         expect(first_home).to have_key(:home_type)
       end
     end
+
+    it { should respond_with 200 }
   end
 end
