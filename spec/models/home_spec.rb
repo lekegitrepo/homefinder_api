@@ -5,7 +5,7 @@ RSpec.describe Home, type: :model do
 
   subject { @home }
 
-  it { should respond_to(:type) }
+  it { should respond_to(:home_type) }
   it { should respond_to(:description) }
   it { should respond_to(:location) }
 
