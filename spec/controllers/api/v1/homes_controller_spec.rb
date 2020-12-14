@@ -4,7 +4,7 @@ RSpec.describe Api::V1::HomesController, type: :controller do
   describe 'GET #show' do
     before(:each) do
       @home = FactoryBot.create :home
-      post :show, params: { id: @home.id, format: :json }
+      get :show, params: { id: @home.id, format: :json }
     end
 
     it 'should return json that contain key :home_type' do
@@ -20,5 +20,16 @@ RSpec.describe Api::V1::HomesController, type: :controller do
     end
 
     it { should respond_with 200 }
+  end
+
+  describe 'GET #index' do
+    before(:each) do
+      @house_list = FactoryBot.create_list(:home, 10)
+      get :index, params: { homes: @house_list, format: :json }
+    end
+
+    it 'should list the houses' do
+      expect(@house_list.length).to eql(10)
+    end
   end
 end
