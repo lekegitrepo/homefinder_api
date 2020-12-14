@@ -9,7 +9,7 @@ RSpec.describe Api::V1::SessionsController, type: :controller do
     context 'When user provide right credentials to sign in' do
       before(:each) do
         credentials = { email: @user.email, password: '123456789' }
-        post :create, params: { user: credentials }
+        post :create, params: { session: credentials }
       end
 
       it 'returns the user record corresponding to the given credentials' do
@@ -24,7 +24,7 @@ RSpec.describe Api::V1::SessionsController, type: :controller do
     context 'When user provide incorrect credentials to sign in' do
       before(:each) do
         credentials = { email: @user.email, password: 'wrong_password' }
-        post :create, params: { user: credentials }
+        post :create, params: { session: credentials }
       end
 
       it 'response with is_success equal to false' do
