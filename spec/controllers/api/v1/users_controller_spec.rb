@@ -40,6 +40,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   describe 'GET #show' do
     before(:each) do
       @user = FactoryBot.create :user
+      request.headers['Authenticate'] = @user.auth_token
       get :show, params: { id: @user.id, format: :json }
     end
 
