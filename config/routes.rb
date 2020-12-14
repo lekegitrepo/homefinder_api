@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'sign_up', to: 'users#create'
 
-      resources :users, only: [:show, :update]
+      resources :users, only: [:show, :update, :destroy]
     end
   end
  end
