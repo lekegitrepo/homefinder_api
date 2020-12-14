@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       delete 'log_out', to: 'sessions#destroy'
 
       resources :users, only: [:show, :update, :destroy]
-      resources :homes, only: [:show]
+      resources :homes, only: [:show, :index]
     end
   end
  end
