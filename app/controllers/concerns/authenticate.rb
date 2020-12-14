@@ -1,7 +1,7 @@
 module Authenticate
   # override Devise current_user method
   def current_user
-    @current_user ||= User.find_by(authentication_token: request.headers['Authorization'])
+    @current_user ||= User.find_by(auth_token: request.headers['Authenticate'])
   end
 
   def user_signed_in?

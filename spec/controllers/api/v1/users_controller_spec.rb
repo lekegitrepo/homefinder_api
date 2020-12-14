@@ -25,11 +25,12 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       end
 
       it 'should contain json with errors key' do
-        expect(json_response).to have_key(:errors)
+        expect(json_response[:user]).to have_key(:errors)
       end
 
       it "should contain an email error message: can't be blank" do
-        expect(json_response[:errors][:email]).to include "can't be blank"
+        user_resp = json_response[:user]
+        expect(user_resp[:errors][:email]).to include "can't be blank"
       end
 
       it { should respond_with 422 }
