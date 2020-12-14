@@ -6,7 +6,7 @@ module RequestSpecHelper
   end
 
   module HeadersHelpers
-    def api_authen_header(token)
+    def api_auth_header(token)
       request.headers['Authenticate'] = token
     end
   end

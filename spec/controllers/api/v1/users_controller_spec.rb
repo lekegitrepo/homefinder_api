@@ -89,4 +89,15 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    before(:each) do
+      @user = FactoryBot.create :user
+      api_auth_header @user.auth_token
+      delete :destroy, params: { id: @user.auth_token,
+                                 format: :json }
+    end
+
+    it { should respond_with 204 }
+  end
 end
