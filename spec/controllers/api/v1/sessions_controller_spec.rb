@@ -34,4 +34,15 @@ RSpec.describe Api::V1::SessionsController, type: :controller do
       it { should respond_with 422 }
     end
   end
+
+  describe 'When user sign out or delete session' do
+    before(:each) do
+      @user = FactoryBot.create :user
+      request.headers['Authenticate'] = @user.auth_token
+      sign_in @user
+      delete :destroy, params: { id: @user.auth_token }
+    end
+
+    it { should respond_with 204 }
+  end
 end
