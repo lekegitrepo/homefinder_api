@@ -14,6 +14,18 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def show
+    user = User.find_by(id: params[:id])
+    if user
+      render json: { msg: 'Profile', is_success: true, user: user }, status: :ok # , [:api_v1, user]
+    else
+      render json: {
+        msg: 'Unable to load user profile',
+        is_success: false, errors: user.errors
+      }, status: :unauthorized
+    end
+  end
+
   private
 
   def user_params
