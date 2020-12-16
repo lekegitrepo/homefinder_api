@@ -4,13 +4,13 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
   describe 'GET #index' do
     # before(:each) do
     #   @user = FactoryBot.create :user
-    #   # @home_list = FactoryBot.create_list(:home, 8)
-    #   @fav_list = FactoryBot.build_list(:favourite, 5)
-    #   # @fav_list = FactoryBot.build_list(:favourite, 5, user_id: @user.id) do |i, idx|
-    #   #   i.id = idx
-    #   #   i.home_id = @home_list[idx].id
-    #   # end
-    #   p "@fav_list: #{@fav_list.length}"
+    #   @home_list = FactoryBot.create_list(:home, 8)
+    #   # @fav_list = FactoryBot.build_list(:favourite, 5)
+    #   @fav_list = FactoryBot.build_list(:favourite, 5, user_id: @user.id) do |i, idx|
+    #     i.id = idx
+    #     i.home_id = @home_list[idx].id
+    #   end
+    #   # p "@fav_list: #{@fav_list.length}"
     #   get :index, params: { id: @user.id, format: :json }
     # end
 
@@ -30,5 +30,15 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
     end
 
     it { should respond_with 200 }
+  end
+
+  describe 'POST #create' do
+    before(:each) do
+      @fav = FactoryBot.create :favourite
+      post :create, params: { favourite: @fav, format: :json }
+    end
+
+    it 'should return a json the contains user_id key' do
+    end
   end
 end
