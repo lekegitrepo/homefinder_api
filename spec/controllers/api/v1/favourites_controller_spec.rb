@@ -15,8 +15,9 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
     # end
 
     before(:each) do
-      @user = FactoryBot.create :user
       @home = FactoryBot.create :home
+      @user = FactoryBot.create :user
+      request.headers['Authenticate'] = @user.auth_token
       3.times { FactoryBot.create :favourite, user: @user, home: @home }
       get :index, params: { id: @user.id, format: :json }
     end

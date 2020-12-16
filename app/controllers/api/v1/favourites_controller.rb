@@ -1,5 +1,5 @@
 class Api::V1::FavouritesController < ApplicationController
-  before_action :authenticate_with_token, only: [:create]
+  before_action :authenticate_with_token, only: [:create, :index]
   def index
     user = User.find_by(id: params[:id])
     render json: user.homes.all
