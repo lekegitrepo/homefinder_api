@@ -41,6 +41,7 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
     end
 
     it 'should return a json the contains user_id key' do
+      expect(json_response[:favourites]).to have_key(:user_id)
     end
 
     it { should respond_with 201 }

@@ -8,6 +8,6 @@ class Api::V1::FavouritesController < ApplicationController
   def create
     home = Home.find_by(id: params[:id])
     fav_home = Favourite.create(user_id: current_user.id, home_id: home.id)
-    home_json 'Set home as your favourite', true, fav_home, :created
+    fav_json 'Set home as your favourite', true, fav_home, :created
   end
 end
