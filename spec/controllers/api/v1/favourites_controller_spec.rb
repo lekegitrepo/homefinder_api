@@ -34,11 +34,15 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
 
   describe 'POST #create' do
     before(:each) do
-      @fav = FactoryBot.create :favourite
-      post :create, params: { favourite: @fav, format: :json }
+      @home = FactoryBot.create :home
+      @user = FactoryBot.create :user
+      request.headers['Authenticate'] = @user.auth_token
+      post :create, params: { id: @home.id, format: :json }
     end
 
     it 'should return a json the contains user_id key' do
     end
+
+    it { should respond_with 201 }
   end
 end
