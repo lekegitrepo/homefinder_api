@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   validates :auth_token, uniqueness: true
 
+  has_many :favourites
+  has_many :homes, through: :favourites
+
   def generate_token
     loop do
       self.auth_token = Devise.friendly_token
