@@ -19,7 +19,7 @@ To get a local copy up and running follow these simple example steps.
 1. Clone the repo: `git@github.com:lekegitrepo/homefinder_api.git`
 2. cd to the directory of the folder(`homefinder_api`)
 
-### Install
+### Installation
 - Run `bundle install`
 - Run `rails db:migrate`
 - [Optional] in some cases the app may require you to run `yarn install --check-files`
@@ -35,8 +35,8 @@ To get a local copy up and running follow these simple example steps.
 
 👤 **Temitayo Adeleke**
 
-- Github: [@githubhandle](https://github.com/lekegitrepo)
-- Twitter: [@twitterhandle](https://twitter.com/leketemi)
+- Github: [@github](https://github.com/lekegitrepo)
+- Twitter: [@twitter](https://twitter.com/leketemi)
 - Linkedin: [linkedin](https://www.linkedin.com/in/temitayo-adeleke/)
 
 ## 🤝 Contributing
