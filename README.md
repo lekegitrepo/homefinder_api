@@ -21,12 +21,12 @@ To get a local copy up and running follow these simple example steps.
 
 ### Install
 - Run `bundle install`
-- Run rails db:migrate
+- Run `rails db:migrate`
 - [Optional] in some cases the app may require you to run `yarn install --check-files`
-- [Important!] Run rails db:seed to populate the database manually
+- [Important!] Run `rails db:seed` to populate the database manually
 
 ### Usage
-- Run the server on port 3001 with this command `rails s -p 3001`. However the port 3000 will be used for the frontend locally.
+- Run the server on port 3001 using this command `rails s -p 3001`. However the port 3000 will be used for the frontend locally.
 
 ### Run tests
 - To test run `rspec spec`
