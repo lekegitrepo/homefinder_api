@@ -3,49 +3,37 @@
 ## Project Description
 This is a Ruby on Rails backend API application to help users search for a house.
 
-Additional description about the project and its features.
-
-## Entity Relationship Diagram (ERD)
-
-  <div style="width: 960px; height: 720px; margin: 10px; position: relative;">
-    <img style="width:960px; height:720px" src="docs/"/>
-  </div>
-
 ## Built With
 
-- Ruby,
+- Ruby 2.6.5,
 - Rails 6
 
-## Live Demo
-
-[Live Demo Link](https://facebclone.herokuapp.com/)
-
-
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+- Ruby 2.6
+- Rails 6
 
 ### Setup
+1. Clone the repo: `git@github.com:lekegitrepo/homefinder_api.git`
+2. cd to the directory of the folder(`homefinder_api`)
 
 ### Install
+- Run `bundle install`
+- Run rails db:migrate
+- [Optional] in some cases the app may require you to run `yarn install --check-files`
+- [Important!] Run rails db:seed to populate the database manually
 
 ### Usage
+- Run the server on port 3001 with this command `rails s -p 3001`. However the port 3000 will be used for the frontend locally.
 
 ### Run tests
+- To test run `rspec spec`
 
-### Deployment
+## Author
 
-
-
-## Authors
-
-👤 **Author1**
+👤 **Temitayo Adeleke**
 
 - Github: [@githubhandle](https://github.com/lekegitrepo)
 - Twitter: [@twitterhandle](https://twitter.com/leketemi)
@@ -55,7 +43,7 @@ To get a local copy up and running follow these simple example steps.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/lekegitrepo/homefinder_api/issues).
 
 ## Show your support
 
@@ -63,9 +51,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Microverse
 
 ## 📝 License
 
