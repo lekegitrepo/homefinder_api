@@ -1,5 +1,4 @@
 class Api::V1::HomesController < ApplicationController
-
   def index
     houses = Home.all
     if houses

@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_with_token, only: [:update, :show, :destroy]
+  before_action :authenticate_with_token, only: %i[update show destroy]
   def create
     user = User.new(user_params)
     if user.save
