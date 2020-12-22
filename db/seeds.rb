@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Home.create home_type: 'Mansion', description: 'This is beautiful home for families',
+            location: 'Country Side', image_link: 'images/1.jpg'
