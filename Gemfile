@@ -35,6 +35,8 @@ gem 'counter_culture', '~> 2.0'
 # Devise
 gem 'devise'
 
+gem 'faker'
+
 gem 'ffaker'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
