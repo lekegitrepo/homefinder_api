@@ -6,5 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Home.create home_type: 'Mansion', description: 'This is beautiful home for families',
-            location: 'Country Side', image_link: 'images/1.jpg'
+p "seeding 25 homes"
+
+home_types = [
+  'Condo', 'Apartment', 'Co-Op', 'Single-Family (Detached)', 'Tiny Home',
+  'Townhome', 'Cape Cod', 'Colonial', 'Contemporary', 'Cottage', 'Craftsman',
+  'Greek Revival', 'Farmhouse', 'French Country', 'Mediterranean',
+  'Midcentury Modern', 'Ranch', 'Split-Level', 'Tudor', 'Victorian'
+]
+
+# File is stored in ./public/my_folder/picture.jpg
+# File.file? "#{Rails.public_path}/my_folder/picture.jpg"
+
+25.times do |h|
+  image = "images/#{h}.jpg"
+  Home.create home_type: home_types[rand(0...20)], description: Faker::Quote.matz,
+            location: Faker::Address.full_address, image_link: image if File.file?("#{Rails.public_path}/#{image}")
+end
