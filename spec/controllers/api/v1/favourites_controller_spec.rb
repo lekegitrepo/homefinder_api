@@ -45,15 +45,15 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
       delete :destroy, params: { id: @fav.id, format: :json }
     end
 
-    it 'should return a json the contains user_id key' do
+    it 'should return a json the contains is_success key' do
       expect(json_response).to have_key(:is_success)
     end
 
-    it 'should return a json the contains is_success key' do
+    it 'should return a json the contains is_success key set to true' do
       expect(json_response[:is_success]).to eql true
     end
 
-    it 'should return a json the contains is_success key set to true' do
+    it 'should return a json the contains message key with a text' do
       expect(json_response[:message]).to eql 'Successfully remove home from favourite'
     end
 
