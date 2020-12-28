@@ -2,18 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::FavouritesController, type: :controller do
   describe 'GET #index' do
-    # before(:each) do
-    #   @user = FactoryBot.create :user
-    #   @home_list = FactoryBot.create_list(:home, 8)
-    #   # @fav_list = FactoryBot.build_list(:favourite, 5)
-    #   @fav_list = FactoryBot.build_list(:favourite, 5, user_id: @user.id) do |i, idx|
-    #     i.id = idx
-    #     i.home_id = @home_list[idx].id
-    #   end
-    #   # p "@fav_list: #{@fav_list.length}"
-    #   get :index, params: { id: @user.id, format: :json }
-    # end
-
     before(:each) do
       @home = FactoryBot.create :home
       @user = FactoryBot.create :user
@@ -46,5 +34,22 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
     end
 
     it { should respond_with 201 }
+  end
+
+  describe 'DELETE #destroy' do
+    before(:each) do
+      @home = FactoryBot.create :home
+      @user = FactoryBot.create :user
+      request.headers['Authenticate'] = @user.auth_token
+      @fav = FactoryBot.create :favourite, user: @user, home: @home
+      p "favourite id #{@fav.id}"
+      delete :destroy, params: { id: @fav.id, format: :json }
+    end
+
+    it 'should return a json the contains user_id key' do
+      expect(json_response[:favourites]).to have_key(:user_id)
+    end
+
+    it { should respond_with 204 }
   end
 end
