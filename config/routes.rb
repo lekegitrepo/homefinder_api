@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
       resources :users, only: [:show, :update, :destroy]
       resources :homes, only: [:show, :index]
-      resources :favourites, only: [:index, :create]
+      resources :favourites, only: [:index, :create, :destroy]
     end
   end
  end
