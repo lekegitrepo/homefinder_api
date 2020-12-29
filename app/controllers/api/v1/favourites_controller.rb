@@ -7,13 +7,20 @@ class Api::V1::FavouritesController < ApplicationController
 
   def create
     home = Home.find_by(id: params[:id])
-    fav_home = Favourite.create(user_id: current_user.id, home_id: home.id)
-    fav_json 'Set home as your favourite', true, fav_home, :created
+    if home
+      home.picked = true
+      fav_home = Favourite.create(user_id: current_user.id, home_id: home.id)
+      fav_json 'Set home as your favourite', true, fav_home, :created
+    else
+      fav_json 'Error!', false, { errors: home.errors }, :unprocessable_entity
+    end
   end
 
   def destroy
     fav = Favourite.find_by(id: params[:id])
     if fav
+      home = Home.find_by(id: fav.home_id)
+      home.picked = false
       fav.destroy
       fav_json 'Successfully remove home from favourite', true, {}, :no_content
     else
