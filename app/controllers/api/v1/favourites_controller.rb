@@ -18,13 +18,17 @@ class Api::V1::FavouritesController < ApplicationController
 
   def destroy
     fav = Favourite.find_by(id: params[:id])
-    if fav
-      home = Home.find_by(id: fav.home_id)
-      home.picked = false
-      fav.destroy
-      fav_json 'Successfully remove home from favourite', true, {}, :no_content
-    else
-      fav_json 'Error!', false, { errors: fav.errors }, :unprocessable_entity
-    end
+    home = Home.find_by(id: fav.home_id)
+    home.picked = false
+    fav.destroy
+    fav_json 'Successfully remove home from favourite', true, {}, :no_content
+    # if fav
+    #   home = Home.find_by(id: fav.home_id)
+    #   home.picked = false
+    #   fav.destroy
+    #   fav_json 'Successfully remove home from favourite', true, {}, :no_content
+    # else
+    #   fav_json 'Error!', false, { errors: fav.errors }, :unprocessable_entity
+    # end
   end
 end
