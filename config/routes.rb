@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post 'sign_up', to: 'users#create'
       post 'sign_in', to: 'sessions#create'
       delete 'log_out', to: 'sessions#destroy'
+      delete 'remove_fav', to: 'favourites#destroy'
 
       resources :users, only: [:show, :update, :destroy]
       resources :homes, only: [:show, :index]
