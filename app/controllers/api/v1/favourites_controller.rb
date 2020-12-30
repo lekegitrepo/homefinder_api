@@ -18,7 +18,9 @@ class Api::V1::FavouritesController < ApplicationController
 
   def destroy
     fav = Favourite.find_by(id: params[:id])
+    p "THIS IS FAVORITE OBJECT: #{fav}"
     home = Home.find_by(id: fav.home_id)
+    p "THIS IS HOME OBJECT: #{home}"
     home.picked = false
     fav.destroy
     fav_json 'Successfully remove home from favourite', true, {}, :no_content
