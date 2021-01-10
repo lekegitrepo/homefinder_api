@@ -13,6 +13,7 @@ class Api::V1::FavouritesController < ApplicationController
     home = Home.find_by(id: params[:id])
     if home
       home.picked = true
+      home.save
       fav_home = Favourite.create(user_id: current_user.id, home_id: home.id)
       fav_json 'Set home as your favourite', true, fav_home, :created
     else
@@ -25,6 +26,7 @@ class Api::V1::FavouritesController < ApplicationController
     if fav
       home = Home.find_by(id: fav.home_id)
       home.picked = false
+      home.save
       fav.destroy
       fav_json 'Successfully remove home from favourite', true, {}, :no_content
     else
