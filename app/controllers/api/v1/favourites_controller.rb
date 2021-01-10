@@ -1,8 +1,12 @@
 class Api::V1::FavouritesController < ApplicationController
   before_action :authenticate_with_token, only: %i[create index destroy]
   def index
-    user = User.find_by(id: params[:id])
-    render json: user.homes.all
+    fav_homes = current_user.homes.all
+    if fav_homes
+      fav_json 'List of your Favourite Houses', true, fav_homes, :ok
+    else
+      fav_json 'Unable to fetch List of Favourite Houses', false, { homes: fav_homes.errors }, :not_found
+    end
   end
 
   def create

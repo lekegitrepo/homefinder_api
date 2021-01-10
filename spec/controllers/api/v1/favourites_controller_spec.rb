@@ -15,7 +15,8 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
     end
 
     it 'should contain detail of a home if one item is picked from the list' do
-      expect(json_response[0]).to have_key(:description)
+      fav_home = json_response[:favourites]
+      expect(fav_home[0]).to have_key(:description)
     end
 
     it { should respond_with 200 }
