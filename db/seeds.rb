@@ -15,16 +15,9 @@ home_types = [
   'Midcentury Modern', 'Ranch', 'Split-Level', 'Tudor', 'Victorian'
 ]
 
-# File is stored in ./public/my_folder/picture.jpg
-# File.file? "#{Rails.public_path}/my_folder/picture.jpg"
-
-5.times do |h|
+25.times do |h|
   image = "images/#{h}.jpg"
   Home.create home_type: home_types[rand(0...20)], description: Faker::Quote.matz,
             location: Faker::Address.full_address, price: 200 * rand(10..30),
             image_link: image if File.file?("#{Rails.public_path}/#{image}")
 end
-
-Home.create home_type: home_types[4], description: Faker::Quote.matz,
-            location: Faker::Address.full_address, price: 200 * rand(10..30),
-            picked: true, image_link: '/images/9.jpg' if File.file?("#{Rails.public_path}/images/9.jpg")
