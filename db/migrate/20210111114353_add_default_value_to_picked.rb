@@ -1,9 +1,9 @@
 class AddDefaultValueToPicked < ActiveRecord::Migration[6.0]
   def up
-    change_column_default :homes, :picked, :boolean, false
+    change_column_default :homes, :picked, false
   end
 
   def down
-    change_column_default :homes, :picked, :boolean, nil
+    change_column_default :homes, :picked, nil
   end
 end
