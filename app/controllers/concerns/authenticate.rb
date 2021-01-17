@@ -9,9 +9,10 @@ module Authenticate
   end
 
   def authenticate_with_token
-    unless user_signed_in?
-      render_json 'Not Authenticated', false, { errors: 'Unauthorized user please sign in' },
-                  :unauthorized
-    end
+    return if user_signed_in?
+
+    render_json 'Not Authenticated',
+                false, { errors: 'Unauthorized user please sign in' },
+                :unauthorized
   end
 end
